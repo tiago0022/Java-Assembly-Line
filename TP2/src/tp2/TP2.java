@@ -5,7 +5,7 @@
  */
 package tp2;
 
-import tp2.DynamicProgramming.Linha;
+
 
 /**
  *
@@ -26,9 +26,11 @@ public class TP2 {
         Linha A1 = new Linha(custoEstacaoA1, custoTransportesA1);  //cria a linha A1 com seus respectivos custos de estações e transportes
         Linha A2 = new Linha(custoEstacaoA2, custoTransportesA2);  //cria a linha A2 com seus respectivos custos de estações e transportes
         
-        System.out.println(A1.getCustosEstacoes()[A1.getCustosEstacoes().length - 2]);
+        //System.out.println(A1.getCustosEstacoes()[A1.getCustosEstacoes().length - 2]);
         DynamicProgramming dinamico = new DynamicProgramming(A1, A2);
-        //dinamico.calculaCaminhoMinimo();
+        dinamico.calculaCaminhoMinimo();
+        dinamico.printaCaminhoMinimo();
+        
     }
     
 }
