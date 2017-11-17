@@ -110,7 +110,10 @@ public class DynamicProgramming {
         
         System.out.println("\nline " + j + ", station " + (A1.getCustosEstacoes().length - 2));
         
-        for(i = A1.getCustosEstacoes().length - 2; i > 1; i--){
+        for (int i = 0; i < l1.length; i++) {
+                System.out.println("Linha: " + (l1[i]) + ", estacao: " + (i + 1));
+            }
+        /*for(i = A1.getCustosEstacoes().length - 2; i > 1; i--){
             if(j == 1)
                 j = l1[i-1];
             else
@@ -118,7 +121,7 @@ public class DynamicProgramming {
             
             System.out.println("line" + j + ", station" + (j-1));
             
-        }
+        }*/
     }
     
     
