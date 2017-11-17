@@ -29,6 +29,9 @@ public class DynamicProgramming {
         
         f1[0] = A1.getCustosEstacoes()[0] + A1.getCustosEstacoes()[1];  //inicializa a primeira posição do primeiro vetor dos caminhos mínimos 
         f2[0] = A2.getCustosEstacoes()[0] + A2.getCustosEstacoes()[1];  //inicializa a primeira posição do segundo vetor dos caminhos mínimos 
+        
+        l1[0] = 1;
+        l2[0] = 2;
     }
 
     public Linha getA1() {
@@ -49,21 +52,31 @@ public class DynamicProgramming {
     
     
     public void calculaCaminhoMinimo(){  //metodo recursivo para calcular o caminho mínimo entre a entrada e saída
-        for(i = 1; i < A1.getCustosEstacoes().length - 2; i++){
-            if(f1[i-1] + A1.getCustosEstacoes()[i] <= f2[i-1] + A2.getCustosTransportes()[i-1] + A1.getCustosEstacoes()[i]){
-                f1[i] = f1[i-1] + A1.getCustosEstacoes()[i];
-                l1[i] = 1;
+        for(i = 2; i < A1.getCustosEstacoes().length - 2; i++){
+            int custo1 = f1[i-2] + A1.getCustosEstacoes()[i];
+            int custo2 = f2[i-2] + A2.getCustosTransportes()[i-2] + A1.getCustosEstacoes()[i];
+                    
+            if(custo1 <= custo2){
+                f1[i-1] = custo1;
+                l1[i-1] = l1[i-2];
             } else{
-                f1[i] = f2[i-1] + A2.getCustosTransportes()[i] + A1.getCustosEstacoes()[i];
-                l1[i] = 2;
+                f1[i-1] = custo2;
+                if(l1[i-2] == 1)
+                    l1[i-1] = 2;
+                else l1[i-1] = 1;
             }
             
-            if(f2[i-1] + A2.getCustosEstacoes()[i] <= f1[i-1] + A1.getCustosTransportes()[i-1] + A2.getCustosEstacoes()[i]){
-                f2[i] = f2[i-1] + A2.getCustosEstacoes()[i];
-                l2[i] = 2;
+            custo1 = f2[i-2] + A2.getCustosEstacoes()[i];
+            custo2 = f1[i-2] + A1.getCustosTransportes()[i-2] + A2.getCustosEstacoes()[i];
+            
+            if(custo1 <= custo2){
+                f2[i-1] = custo1;
+                l2[i-2] = l2[i-1];
             } else{
-                f2[i] = f1[i-1] + A1.getCustosTransportes()[i] + A2.getCustosEstacoes()[i];
-                l2[i] = 1;
+                f2[i-1] = custo2;
+                if(l2[i-2] == 2)
+                    l2[i-1] = 1;
+                else l2[i-1] = 2;
             }
             
         }
@@ -95,9 +108,9 @@ public class DynamicProgramming {
         System.out.println("\n");
         printaVetor(l2);
         
-        System.out.println("\nline" + j + ", station " + (A1.getCustosEstacoes().length - 2));
+        System.out.println("\nline " + j + ", station " + (A1.getCustosEstacoes().length - 2));
         
-        /*for(i = A1.getCustosEstacoes().length - 2; i > 1; i--){
+        for(i = A1.getCustosEstacoes().length - 2; i > 1; i--){
             if(j == 1)
                 j = l1[i-1];
             else
@@ -105,7 +118,7 @@ public class DynamicProgramming {
             
             System.out.println("line" + j + ", station" + (j-1));
             
-        }*/
+        }
     }
     
     

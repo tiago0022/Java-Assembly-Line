@@ -27,11 +27,11 @@ public class TP2 {
         Linha A2 = new Linha(custoEstacaoA2, custoTransportesA2);  //cria a linha A2 com seus respectivos custos de estações e transportes
         
         //System.out.println(A1.getCustosEstacoes()[A1.getCustosEstacoes().length - 2]);
-//        DynamicProgramming dinamico = new DynamicProgramming(A1, A2);
-//        dinamico.calculaCaminhoMinimo();
-        //dinamico.printaCaminhoMinimo();
+        DynamicProgramming dinamico = new DynamicProgramming(A1, A2);
+        dinamico.calculaCaminhoMinimo();
+        dinamico.printaCaminhoMinimo();
         
-        Montagem mon = new Montagem(custoEstacaoA1, custoEstacaoA2, custoTransportesA1, custoTransportesA2);
+        //Montagem mon = new Montagem(custoEstacaoA1, custoEstacaoA2, custoTransportesA1, custoTransportesA2);
         
     }
     
