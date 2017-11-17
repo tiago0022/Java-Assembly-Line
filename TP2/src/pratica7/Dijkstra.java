@@ -59,7 +59,8 @@ public class Dijkstra {
       System.out.println ("Nao existe caminho de " +origem+ " ate " +v);
     else {
       imprimeCaminho (origem, this.antecessor[v]);  //chama a função recursivamente
-      System.out.println("Aresta " + antecessor[v] + " a " + v + "; Distancia-> "+grafo.mat[antecessor[v]][v].getDistancia()+";   Tempo-> "+grafo.mat[antecessor[v]][v].getTempo());  //imprime as arestas, juntamente com a distancia e o tempo
-    }    
+//      System.out.println("Aresta " + antecessor[v] + " a " + v + "; Distancia-> "+grafo.mat[antecessor[v]][v].getDistancia()+";   Tempo-> "+grafo.mat[antecessor[v]][v].getTempo());  //imprime as arestas, juntamente com a distancia e o tempo
+        System.out.println("Aresta " + antecessor[v] + " a " + v + "; Tempo-> " + grafo.mat[antecessor[v]][v].getDistancia());  //imprime as arestas, juntamente com a distancia e o tempo
+    }
   }
 }

@@ -132,8 +132,12 @@ public class JGrafo {
     System.out.println ();
     for (int i = 0; i < this.numVertices; i++) { 
       System.out.print (i + "  ");
-      for (int j = 0; j < this.numVertices; j++)
-        System.out.print (this.mat[i][j] + "   ");
+      for (int j = 0; j < this.numVertices; j++){
+        if(this.mat[i][j] == null)
+            System.out.print ("." + "   ");
+        else
+            System.out.print (this.mat[i][j] + "   ");
+      }
       System.out.println ();
     }
   }
