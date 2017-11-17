@@ -15,5 +15,6 @@ public class JAEDsMaps {
         Dijkstra d = new Dijkstra(grafo);  //inicia o algoritmo de Dijkstra com o grafo em questão
         d.obterArvoreCMC(v1);  //gera os caminhos mínimos de todos os vértices
         d.imprimeCaminho(v1, v2);  //imprime o caminho mínimo dos dois vértices passados como parâmetro
+        d.getTempoTotal(); //imprime o tempo total
     }
 }

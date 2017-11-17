@@ -13,8 +13,13 @@ public class Dijkstra {
     private int antecessor[];
   private double p[];
   private JGrafo grafo;
-
-  public Dijkstra (JGrafo grafo) { this.grafo = grafo; }  
+  private int tempoTotal;
+  
+  public void getTempoTotal(){
+    System.out.println("\nTempo total: " + tempoTotal);
+}
+  
+  public Dijkstra (JGrafo grafo) { this.grafo = grafo; this.tempoTotal = 0;}  
   public void obterArvoreCMC (int raiz) throws Exception{
     int n = this.grafo.numVertices();
     this.p = new double[n]; // @{\it peso dos v\'ertices}@
@@ -61,6 +66,7 @@ public class Dijkstra {
       imprimeCaminho (origem, this.antecessor[v]);  //chama a função recursivamente
 //      System.out.println("Aresta " + antecessor[v] + " a " + v + "; Distancia-> "+grafo.mat[antecessor[v]][v].getDistancia()+";   Tempo-> "+grafo.mat[antecessor[v]][v].getTempo());  //imprime as arestas, juntamente com a distancia e o tempo
         System.out.println("Aresta " + antecessor[v] + " a " + v + "; Tempo-> " + grafo.mat[antecessor[v]][v].getDistancia());  //imprime as arestas, juntamente com a distancia e o tempo
+        tempoTotal += grafo.mat[antecessor[v]][v].getDistancia();
     }
   }
 }
