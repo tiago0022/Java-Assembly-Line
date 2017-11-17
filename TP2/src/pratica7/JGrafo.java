@@ -126,20 +126,32 @@ public class JGrafo {
     }
   }
   public void imprime () {
-    System.out.print ("   ");
-    for (int i = 0; i < this.numVertices; i++) 
-      System.out.print (i + "   "); 
-    System.out.println ();
-    for (int i = 0; i < this.numVertices; i++) { 
-      System.out.print (i + "  ");
-      for (int j = 0; j < this.numVertices; j++){
-        if(this.mat[i][j] == null)
-            System.out.print ("." + "   ");
-        else
-            System.out.print (this.mat[i][j] + "   ");
-      }
-      System.out.println ();
+//    System.out.print ("   ");
+//    for (int i = 0; i < this.numVertices; i++) 
+//      System.out.print (i + "   "); 
+//    System.out.println ();
+//    for (int i = 0; i < this.numVertices; i++) { 
+//      System.out.print (i + "  ");
+//      for (int j = 0; j < this.numVertices; j++){
+//        if(this.mat[i][j] == null)
+//            System.out.print ("." + "   ");
+//        else
+//            System.out.print (this.mat[i][j] + "   ");
+//      }
+//      System.out.println ();
+//    }
+
+    System.out.println();
+    for (int i = 0; i < this.numVertices; i++){
+        System.out.print("[" + i + "]-> ");
+        for(int j = 0; j < this.numVertices; j++){
+            if(this.mat[i][j] != null)
+                System.out.print(j + " > ");
+        }
+        System.out.println(".");
     }
+    System.out.println();
+
   }
   public int numVertices () { return this.numVertices; }
   public JGrafo grafoTransposto () {

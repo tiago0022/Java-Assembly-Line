@@ -96,17 +96,19 @@ public class DynamicProgramming {
         for(int i = 0; i < v.length; i++){
             System.out.print(v[i] + ", ");
         }
+        
     }
     
     public void printaCaminhoMinimo(){
         int j = lFinal;
         printaVetor(f1);
-        System.out.println("\n");
+        System.out.println();
         printaVetor(f2);
         System.out.println("\n");
         printaVetor(l1);
-        System.out.println("\n");
+        System.out.println();
         printaVetor(l2);
+        System.out.println();
         
         System.out.println("\nline " + j + ", station " + (A1.getCustosEstacoes().length - 2));
         

@@ -14,7 +14,7 @@ public class Montagem {
         grafo.insereAresta(0, 1, est1[0] + est1[1]);
         
         //de estação para estação na linha
-        for(int i = 1; i < est1.length - 1; i++)
+        for(int i = 1; i < est1.length - 2; i++)
             grafo.insereAresta(i, i + 1, est1[i + 1]);
         
         //transporte ao ponto final
@@ -35,8 +35,10 @@ public class Montagem {
             grafo.insereAresta(i + est1.length - 1, i + 2 , transp2[i] +  est1[i + 2]);
         }
         
+        System.out.println("\nGULOSO:");
         grafo.imprime();
         JAEDsMaps j = new JAEDsMaps();
         j.caminhoMaisRapido(grafo, 0, grafo.numVertices() - 1);
+        System.out.println("\n====================");
     }
 }
